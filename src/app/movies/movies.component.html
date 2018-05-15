@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Add Movie</h2>
+      <form>
+        <div class="form-group">
+          <div class="col-sm-8">
+          <input type="text" name="movieName" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary">Add Movie</button>
+        </div>
+        </div>        
+      </form>
+    </div>
+    <div class="col-sm-6">
+      <h3>Movie List</h3>
+      <div *ngIf="movies.length > 0; then moviesAvailable else noMoviesAvailable"></div>
+      <ng-template #moviesAvailable>
+          <ul>
+            <li *ngFor="let movie of movies; index as i">{{movie.name}}</li>
+          </ul>
+      </ng-template>
+      <ng-template #noMoviesAvailable>
+          <h5>No Movie Available to Show</h5>
+      </ng-template>
+    </div>
+  </div>
+</div>
